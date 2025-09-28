@@ -1,0 +1,42 @@
+
+POST http://localhost:3000/event/create
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiJhZG1pbjEiLCJfaWQiOiI2OGQ3YTY0ZmM5Y2U0ZmZhYjQyMTE0MTciLCJpYXQiOjE3NTkwODc3MTgsImV4cCI6MTc1OTA5MTMxOH0.Vd2QClNZB646eSdIKNAeDNu-OdHPEeM2fzf3LTkwqyg
+
+{
+    "title": "third event",
+    "description": "this is the third"
+}
+###
+GET http://localhost:3000/event/
+
+
+###
+GET http://localhost:3000/event/68d43754dc5d9e2cee47054e
+
+###
+POST http://localhost:3000/admin/create
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiJhZG1pbjEiLCJfaWQiOiI2OGQ3YTY0ZmM5Y2U0ZmZhYjQyMTE0MTciLCJpYXQiOjE3NTkwNjQyODUsImV4cCI6MTc1OTA2Nzg4NX0.UL6KU_FUoSvsEOyl58Az2LG73iOTbVNDyQAPrtdVrfY
+
+{
+    "userID": "admin4",
+    "password": "1234"   
+
+}
+
+###
+DELETE http://localhost:3000/admin/admin3
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OGQ3YTY0ZmM5Y2U0ZmZhYjQyMTE0MTciLCJ1c2VySUQiOiJhZG1pbjEiLCJwYXNzd29yZCI6IiQyYiQxMCRiV1gyOWxMZFZ6RkpmTGc3VGl6Wk9PZ1k3UWZKMlQ3NzlkZXRMcElxMDVtZllWdWo3cE5aaSIsIl9fdiI6MCwiaWF0IjoxNzU5MDU3NzcwfQ.522525MsuL82wlUGoIwZ7PFf-VFDOOUcwhq4wzkK2KY
+###
+POST http://localhost:3000/admin/login
+Content-Type: application/json
+
+{
+    "userID": "admin1",
+    "password": "1234"
+       
+}
+###
+DELETE http://localhost:3000/event/68d98d5c6b224254751e1edc
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiJhZG1pbjEiLCJfaWQiOiI2OGQ3YTY0ZmM5Y2U0ZmZhYjQyMTE0MTciLCJpYXQiOjE3NTkwODY5MTIsImV4cCI6MTc1OTA5MDUxMn0.hbn4sdOSyC_w4TxLFFTBUioLk0Mpo0QAeltFZ0VHLBY
