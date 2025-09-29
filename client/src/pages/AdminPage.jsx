@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import AdminDashboard from "./AdminDashboard";
+
 import AdminLogin from "./AdminLogin";
 import { useEffect } from "react";
 

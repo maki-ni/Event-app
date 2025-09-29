@@ -9,20 +9,21 @@ import AdminDashboard from './pages/AdminDashboard'
 import ProtectedRoute from './components/ProtectedRoute'
 import CreateEvent from './pages/CreateEvent'
 import CreateAdmin from './pages/CreateAdmin'
+import AdminDelete from './pages/AdminDelete'
 
 function App() {
   return (
     <>
       <Routes>
         <Route path='/event' element={<Home />}></Route>
-        <Route path='/' element={<Navigate to="/event" replace />} />
-        
-        {/* <Route path='/admin/login' element={<AdminLogin />} /> */}
+        <Route path='/' element={<Navigate to="/event" replace />} />       
+       
         <Route path='/admin' element={< AdminPage />} />
         <Route path='/admin/dashboard' element={<ProtectedRoute><AdminDashboard /> </ProtectedRoute>}></Route>
         <Route path="/event/create" element={<ProtectedRoute><CreateEvent /></ProtectedRoute>}></Route>
         
         <Route path="/admin/create" element={<ProtectedRoute><CreateAdmin /></ProtectedRoute>}></Route>
+        <Route path="/admin/delete" element={<ProtectedRoute><AdminDelete /></ProtectedRoute>} />
         <Route path='/error' element={<ErrorPage />} />
       </Routes>
       
