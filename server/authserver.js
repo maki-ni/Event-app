@@ -7,7 +7,7 @@ const adminCheck = async (req, res, next) => {
     const { userID, password } = req.body;
 
     const admin = await Admin.findOne({ userID });
-    if (!bcrypt.compare(password, admin.password)) {
+    if (!(await bcrypt.compare(password, admin.password))) {
       return res.status(401).json({
         message: "hoe this admin doesn't exist",
       });

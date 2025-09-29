@@ -6,10 +6,10 @@ const Event = require("../models/event");
 router.get("/event", async (req, res) => {
   try {
     const events = await Event.find();
-    const titles = events.map((el) => {
-      return el.title;
-    });
-    res.send(titles);
+    // const titles = events.map((el) => {
+    //   return el.title;
+    // });
+    res.send(events);
     console.log(events);
   } catch (err) {
     res.status(500).json({ error: err.message });

@@ -1,0 +1,44 @@
+/* Home.module.css */
+.eventListContainer {
+  max-width: 700px;
+  margin: 2.5rem auto;
+  background: #f8fafd;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(176,196,222,0.13);
+  padding: 2rem 2.5rem;
+}
+.eventListTitle {
+  color: #4682b4;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+.eventList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.eventItem {
+  background: linear-gradient(90deg, #e3f0ff 0%, #b0c4de 100%);
+  border-radius: 10px;
+  margin-bottom: 1.2rem;
+  padding: 1.2rem 1.5rem;
+  box-shadow: 0 2px 8px rgba(176,196,222,0.10);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: box-shadow 0.2s;
+}
+.eventItem:hover {
+  box-shadow: 0 6px 18px rgba(70,130,180,0.13);
+}
+.eventTitle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #1e3a5c;
+}
+.eventDetails {
+  color: #555;
+  font-size: 1rem;
+}

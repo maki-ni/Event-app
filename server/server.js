@@ -18,9 +18,6 @@ db.on("error", (err) => console.log(err));
 const eventRoutes = require("./routes/eventRoutes");
 const adminRoutes = require("./routes/adminRoutes");
 
-app.listen(3000, () => {
-  console.log("listening");
-});
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -34,4 +31,7 @@ app.use(adminRoutes);
 app.use("/404", (req, res) => {
   res.status(404);
   res.send("You're not on the correct site");
+});
+app.listen(3000, () => {
+  console.log("listening");
 });

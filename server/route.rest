@@ -9,6 +9,15 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiJhZG1pb
 }
 ###
 GET http://localhost:3000/event/
+###
+PUT http://localhost:3000/event/68d98c849edcf1b4d697389c
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOiJhZG1pbjEiLCJfaWQiOiI2OGQ3YTY0ZmM5Y2U0ZmZhYjQyMTE0MTciLCJpYXQiOjE3NTkwODY5MTIsImV4cCI6MTc1OTA5MDUxMn0.hbn4sdOSyC_w4TxLFFTBUioLk0Mpo0QAeltFZ0VHLBY
+
+{
+    "title": "first event 2.0",
+    "description": "this is the update"
+}
 
 
 ###

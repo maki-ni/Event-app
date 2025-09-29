@@ -25,7 +25,8 @@ router.post("/admin/create", authenticateToken, async (req, res) => {
     const { userID, password } = req.body;
     const salt = await bcrypt.genSalt();
     const hashedpass = await bcrypt.hash(password, salt);
-    if (!Admin.findOne({ userID })) {
+    const existing = await Admin.findOne({ userID });
+    if (!existing) {
       const admin = new Admin({ userID, password: hashedpass });
       await admin.save();
       return res.status(201).json({ message: "admin is successfully created" });
@@ -59,6 +60,23 @@ router.post("/event/create", authenticateToken, async (req, res) => {
     console.log(req.body);
   } catch (err) {
     res.status(400).json({ error: err.message });
+  }
+});
+
+router.put("/event/:id", authenticateToken, async (req, res) => {
+  try {
+    const { id } = req.params;
+    const updatedEvent = await Event.findByIdAndUpdate(id, req.body, {
+      new: true,
+    });
+    if (!updatedEvent) {
+      return res.json({ message: "there's a problem with the update" });
+    }
+    res.json({ updatedEvent });
+  } catch (err) {
+    res.json({
+      error: err.messagee,
+    });
   }
 });
 
