@@ -23,6 +23,8 @@ function AdminLogin() {
             }
             else {
                 navigate("/error")
+
+                setTimeout(() => { navigate("/admin") }, 3000)
             }
 
         }
