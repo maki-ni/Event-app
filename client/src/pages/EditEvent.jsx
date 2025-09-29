@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import styles from "./EditEvent.module.css";
+import Navbar from "../components/Navbar";
 
 function EditEvent() {
     const [title, setTitle] = useState("");
@@ -26,6 +27,8 @@ function EditEvent() {
     }
     
     return (
+        <>
+            <Navbar></Navbar>
         <form className={styles.editEventForm} onSubmit={updateEvents}>
             <h2 style={{textAlign: 'center', color: '#4682b4', marginBottom: '1rem'}}>Edit Event</h2>
             <label htmlFor="eventTitle">Title</label>
@@ -33,7 +36,8 @@ function EditEvent() {
             <label htmlFor="eventDescription">Description</label>
             <textarea id="eventDescription" placeholder="type in the updated event description" value={description} onChange={e => setDescription(e.target.value)} />
             <button type="submit">Submit</button>
-        </form>
+            </form>
+            </>
     );
 }
 export default EditEvent

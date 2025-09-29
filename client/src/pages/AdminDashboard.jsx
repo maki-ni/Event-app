@@ -12,6 +12,14 @@ function AdminDashboard() {
             .then(res => res.json())
         .then(data => setEvents(data))
     })
+    function deleteEvent(id) {
+        fetch(`http://localhost:3000/event/${id}`, {
+            method: "DELETE",
+            headers: {
+                "Authorization": "Bearer " + localStorage.getItem("token")
+            }
+        })
+    }
     
     
     return (
@@ -26,6 +34,9 @@ function AdminDashboard() {
                         <button onClick={() => {
                             navigate(`/event/edit/${event._id}`);
                         }}>Edit</button>
+                        <button onClick={() => {
+                            deleteEvent(event._id)
+                        }}>Delete</button>
                     </li>))}
 
                 </ul>
