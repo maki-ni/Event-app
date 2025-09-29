@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./AdminLogin.module.css";
-
+import { Link } from "react-router-dom";
 function AdminLogin() {
     const navigate = useNavigate();
     const [userID, setUserID] = useState("");
@@ -31,8 +31,10 @@ function AdminLogin() {
         }
     }
     return (
+
         <form className={styles.adminLoginForm} onSubmit={handleLogin}>
-            <h2 style={{textAlign: 'center', color: '#4682b4', marginBottom: '1rem'}}>Admin Login</h2>
+            <h2 style={{ textAlign: 'center', color: '#4682b4', marginBottom: '1rem' }}>Admin Login</h2>
+            <Link to="/event" style={{color: "rgba(42, 80, 110, 0.8)", fontSize: "12px"}}>Not an Admin?</Link>
             <label htmlFor="userID">Username</label>
             <input type="text" id="userID" name="userID" value={userID} onChange={e => setUserID(e.target.value)} autoComplete="username" />
             <label htmlFor="password">Password</label>

@@ -1,6 +1,7 @@
 
 import { useEffect, useState } from "react";
 import styles from "./Home.module.css";
+import { Link } from "react-router-dom";
 
 function Home() {
     const [events, setEvents] = useState([])
@@ -13,6 +14,7 @@ function Home() {
     
     return (
         <div className={styles.eventListContainer}>
+            <Link to="/admin" style={{color: "rgba(42, 80, 110, 0.8)", fontSize: "12px"}}>Are you an Admin?</Link>
             <div className={styles.eventListTitle}>Upcoming Events</div>
             <ul className={styles.eventList}>
                 {events.map((event, id) => (

@@ -13,12 +13,15 @@ function AdminDashboard() {
         .then(data => setEvents(data))
     })
     function deleteEvent(id) {
-        fetch(`http://localhost:3000/event/${id}`, {
+        if (window.confirm("Are you sure you want to delete this event?")) {
+            fetch(`http://localhost:3000/event/${id}`, {
             method: "DELETE",
             headers: {
                 "Authorization": "Bearer " + localStorage.getItem("token")
             }
         })
+        }
+        
     }
     
     
