@@ -19,7 +19,7 @@ function AdminDelete() {
                 
                 
             });
-            const data = await res.json();
+            await res.json();
             if (res.ok) {
                 
                 navigate("/admin")

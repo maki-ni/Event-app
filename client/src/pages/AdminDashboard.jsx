@@ -2,14 +2,17 @@
 import { useState, useEffect } from "react"
 import Navbar from "../components/Navbar"
 import styles from "./Home.module.css"
+import { useNavigate } from "react-router-dom"
 
 function AdminDashboard() {
+    const navigate = useNavigate();
     const [events, setEvents] = useState([])
     useEffect(() => {
         fetch("http://localhost:3000")
             .then(res => res.json())
         .then(data => setEvents(data))
     })
+    
     
     return (
         <>
@@ -19,7 +22,10 @@ function AdminDashboard() {
                 <ul className={styles.eventList}>
                     {events.map((event, id) => (<li className={styles.eventItem} key={id}>
                         <div className={styles.eventTitle}>{event.title}</div>
-                                                <div className={styles.eventDetails}>{event.description}</div>
+                        <div className={styles.eventDetails}>{event.description}</div>
+                        <button onClick={() => {
+                            navigate(`/event/edit/${event._id}`);
+                        }}>Edit</button>
                     </li>))}
 
                 </ul>

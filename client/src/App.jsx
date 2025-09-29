@@ -10,6 +10,7 @@ import ProtectedRoute from './components/ProtectedRoute'
 import CreateEvent from './pages/CreateEvent'
 import CreateAdmin from './pages/CreateAdmin'
 import AdminDelete from './pages/AdminDelete'
+import EditEvent from './pages/EditEvent'
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         
         <Route path="/admin/create" element={<ProtectedRoute><CreateAdmin /></ProtectedRoute>}></Route>
         <Route path="/admin/delete" element={<ProtectedRoute><AdminDelete /></ProtectedRoute>} />
+        <Route path="/event/edit/:id" element={<ProtectedRoute><EditEvent /></ProtectedRoute>} />
         <Route path='/error' element={<ErrorPage />} />
       </Routes>
       
