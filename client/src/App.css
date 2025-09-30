@@ -10,7 +10,7 @@
 		@apply text-center text-blue-700 mb-4 text-2xl font-bold
 	}
 	.form-label {
-		@apply text-blue-700 font-medium
+		@apply flex flex-col 	text-blue-700 font-medium
 	}
 	.form-input{
 		@apply p-3 border border-blue-200 rounded-md text-base bg-blue-50 focus:outline-none border-blue-500;
