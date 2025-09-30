@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from "react"
 import Navbar from "../components/Navbar"
-import styles from "./Home.module.css"
+// Tailwind CSS used, no CSS module import
 import { useNavigate } from "react-router-dom"
 
 function AdminDashboard() {
@@ -28,20 +28,32 @@ function AdminDashboard() {
     return (
         <>
             <Navbar />
-            <div className={StyleSheet.eventListContainer}>
-                <div className={styles.eventListTitle}>Upcoming Events</div>
-                <ul className={styles.eventList}>
-                    {events.map((event, id) => (<li className={styles.eventItem} key={id}>
-                        <div className={styles.eventTitle}>{event.title}</div>
-                        <div className={styles.eventDetails}>{event.description}</div>
-                        <button onClick={() => {
-                            navigate(`/event/edit/${event._id}`);
-                        }}>Edit</button>
-                        <button onClick={() => {
-                            deleteEvent(event._id)
-                        }}>Delete</button>
-                    </li>))}
-
+            <div className="max-w-2xl mx-auto mt-10 bg-white rounded-xl shadow-lg p-8">
+                <div className="text-blue-700 text-2xl font-bold text-center mb-6">Upcoming Events</div>
+                <ul className="list-none p-0 m-0">
+                    {events.map((event, id) => (
+                        <li
+                            className="bg-gradient-to-r from-blue-100 to-blue-300 rounded-lg mb-4 p-5 shadow flex flex-col gap-2 hover:shadow-lg transition"
+                            key={id}
+                        >
+                            <div className="text-lg font-semibold text-blue-900">{event.title}</div>
+                            <div className="text-gray-700 text-base">{event.description}</div>
+                            <div className="flex gap-2 mt-2">
+                                <button
+                                    onClick={() => navigate(`/event/edit/${event._id}`)}
+                                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded"
+                                >
+                                    Edit
+                                </button>
+                                <button
+                                    onClick={() => deleteEvent(event._id)}
+                                    className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 rounded"
+                                >
+                                    Delete
+                                </button>
+                            </div>
+                        </li>
+                    ))}
                 </ul>
             </div>
         </>
