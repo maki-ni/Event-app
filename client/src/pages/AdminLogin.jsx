@@ -11,8 +11,8 @@ function AdminLogin() {
 
     //list of fields
     const fields = [
-        { label: "Username", name: "userID", type: "text", value: userID, onChange: e=> setUserID(e.target.value), id: "userID", required: true },
-        {label: "Password", name: "password", type: "password",id: "password" ,value: password, onChange: e=> setPassword(e.target.value), required: true}
+        { label: "Username", name: "userID", type: "text", value: userID, onChange: e=> setUserID(e.target.value), id: "userID", autoComplete: "off", required: true },
+        {label: "Password", name: "password", type: "password",id: "password" ,value: password, onChange: e=> setPassword(e.target.value),autoComplete: "password",  required: true}
         
     ]
     const handleLogin = async (e) => {
@@ -44,39 +44,7 @@ function AdminLogin() {
         <>
             <FormBase title="Admin Login" fields={fields} test="Not an Admin?" redirectLocation="/event" error={error}  onSubmit={handleLogin} buttonText="Login" />
             
-        {/* <form
-            className="form-base"
-            onSubmit={handleLogin}
-        >
-            <h2 className="form-h2">Admin Login</h2>
-            {error && <div className="text-red-700 text-sm text-center mb-2">{error}</div>}
-            <label htmlFor="userID" className="form-label">Username</label>
-            <input
-                type="text"
-                id="userID"
-                name="userID"
-                value={userID}
-                onChange={e => setUserID(e.target.value)}
-                autoComplete="username"
-                className="form-input"
-            />
-            <label htmlFor="password" className="form-label">Password</label>
-            <input
-                type="password"
-                id="password"
-                name="password"
-                value={password}
-                onChange={e => setPassword(e.target.value)}
-                autoComplete="current-password"
-                className="form-input"
-            />
-            <button
-                type="submit"
-                className="form-button"
-            >
-                Login
-            </button>
-            </form> */}
+        
             </>
     )
 }

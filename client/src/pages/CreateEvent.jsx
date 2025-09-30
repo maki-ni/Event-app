@@ -2,11 +2,16 @@ import { useState } from "react";
 
 import Navbar from "../components/Navbar";
 import { useNavigate } from "react-router-dom";
-
+import FormBase from "../components/FormBase";
 function CreateEvent() {
     const navigate = useNavigate();
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
+    const fields = [
+        { label: "Event Title", name: "title", type: "text", value: title, onChange: e=> setTitle(e.target.value), id: "title", autoComplete: "off", required: true },
+        { label: "Event Description", name: "description", type: "text", value: description, onChange: e=> setDescription(e.target.value), id: "description",autoComplete: "off",  required: true }
+        
+    ]
     async function handleEventCreation(e) {
         e.preventDefault();
         try {
@@ -29,7 +34,8 @@ function CreateEvent() {
     return (
         <>
             <Navbar />
-            <form
+            <FormBase title="Create Event" fields={fields} test="" redirectLocation="/admin" error=""  onSubmit={handleEventCreation} buttonText="Create Event" />
+            {/* <form
                 onSubmit={handleEventCreation}
                 className="form-base"
             >
@@ -57,7 +63,7 @@ function CreateEvent() {
                 >
                     Create
                 </button>
-            </form>
+            </form> */}
         </>
     )
 }

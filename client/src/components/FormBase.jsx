@@ -9,7 +9,7 @@ function FormBase({ title, fields, onSubmit, test, redirectLocation,error, butto
                     
                     <label key={inputProps.id} className="form-label" htmlFor={inputProps.id}>
                         {label}
-                        <input className="form-input" {...inputProps} />
+                        <input className="form-input" {...inputProps}  />
                     </label>
                     
                 ))}

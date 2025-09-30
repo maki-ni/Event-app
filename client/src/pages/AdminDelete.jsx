@@ -2,12 +2,16 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
-
+import FormBase from "../components/FormBase";
 
 function AdminDelete() {
     const navigate = useNavigate();
     const [userID, setUserID] = useState("");
-    
+    const fields = [
+        { label: "Username", name: "userID", type: "text", value: userID, onChange: e=> setUserID(e.target.value), id: "userID", autoComplete: "off" ,required: true }
+        
+        
+    ]
     const handleDelete = async (e) => {
         e.preventDefault();
         try {
@@ -37,28 +41,8 @@ function AdminDelete() {
     return (
         <>
             <Navbar></Navbar>
-        <form
-            className="form-base"
-            onSubmit={handleDelete}
-        >
-            <h2 className="form-h2">Admin Delete</h2>
-            <label htmlFor="userID" className="form-label">Username</label>
-            <input
-                type="text"
-                id="userID"
-                name="userID"
-                value={userID}
-                onChange={e => setUserID(e.target.value)}
-                autoComplete="username"
-                className="form-input"
-            />
-            <button
-                type="submit"
-                className="form-button-delete"
-            >
-                Delete Admin
-            </button>
-            </form>
+            <FormBase title="Admin Delete" fields={fields} test="" redirectLocation="" error=""  onSubmit={handleDelete} buttonText="Remove" />
+        
             </>
     )
 }

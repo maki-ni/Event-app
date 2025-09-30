@@ -2,13 +2,18 @@ import { useState } from "react";
 
 import Navbar from "../components/Navbar";
 import { useNavigate } from "react-router-dom";
-
+import FormBase from "../components/FormBase";
 
 function CreateAdmin() {
     const navigate = useNavigate();
     const [userID, setUserID] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
+    const fields = [
+        { label: "Username", name: "userID", type: "text", value: userID, onChange: e=> setUserID(e.target.value), id: "userID", autoComplete: "off",required: true },
+        {label: "New Password", name: "password", type: "password",id: "password" ,value: password, onChange: e=> setPassword(e.target.value),autoComplete: "password", required: true}
+        
+    ]
     async function handleAdminCreation(e) {
         e.preventDefault();
         try {
@@ -44,37 +49,8 @@ function CreateAdmin() {
     return (
         <> 
             <Navbar></Navbar>
-            <form
-                onSubmit={handleAdminCreation}
-                className="form-base"
-            >
-                <h2 className="form-h2">Create Admin</h2>
-                {error && <div className="text-red-700 text-sm text-center mb-2">{error}</div>}
-                <label htmlFor="userID" className="form-label">New userID</label>
-                <input
-                    type="text"
-                    id="userID"
-                    name="userID"
-                    value={userID}
-                    onChange={e => setUserID(e.target.value)}
-                    className="form-input"
-                />
-                <label htmlFor="password" className="form-label">New Password</label>
-                <input
-                    type="password"
-                    id="password"
-                    name="password"
-                    value={password}
-                    onChange={e => setPassword(e.target.value)}
-                    className="form-input"
-                />
-                <button
-                    type="submit"
-                    className="form-button"
-                >
-                    Create Admin
-                </button>
-            </form>
+            <FormBase title="Create Admin" fields={fields} test="" redirectLocation="/admin" error={error}  onSubmit={handleAdminCreation} buttonText="Create Admin" />
+            
             </>
     )
 }
