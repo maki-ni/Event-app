@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-// Tailwind CSS used, no CSS module import
+
 import Navbar from "../components/Navbar";
 
 function EditEvent() {

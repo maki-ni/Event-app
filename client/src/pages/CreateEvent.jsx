@@ -1,5 +1,5 @@
 import { useState } from "react";
-// Tailwind CSS used, no CSS module import
+
 import Navbar from "../components/Navbar";
 import { useNavigate } from "react-router-dom";
 
@@ -31,29 +31,29 @@ function CreateEvent() {
             <Navbar />
             <form
                 onSubmit={handleEventCreation}
-                className="bg-white max-w-md mx-auto mt-12 rounded-xl shadow-lg p-8 flex flex-col gap-4"
+                className="form-base"
             >
-                <h2 className="text-center text-blue-700 mb-4 text-2xl font-bold">Create Event</h2>
-                <label htmlFor="title" className="text-blue-700 font-medium">Title</label>
+                <h2 className="form-h2">Create Event</h2>
+                <label htmlFor="title" className="form-label">Title</label>
                 <input
                     type="text"
                     id="title"
                     name="title"
                     value={title}
                     onChange={e => setTitle(e.target.value)}
-                    className="p-3 border border-blue-200 rounded-md text-base bg-blue-50 focus:outline-none focus:border-blue-500"
+                    className="form-input"
                 />
-                <label htmlFor="description" className="text-blue-700 font-medium">Description</label>
+                <label htmlFor="description" className="form-label">Description</label>
                 <textarea
                     id="description"
                     name="description"
                     value={description}
                     onChange={e => setDescription(e.target.value)}
-                    className="p-3 border border-blue-200 rounded-md text-base bg-blue-50 focus:outline-none focus:border-blue-500"
+                    className="form-input"
                 />
                 <button
                     type="submit"
-                    className="bg-gradient-to-r from-blue-200 to-blue-600 text-white rounded-md py-3 text-lg font-semibold shadow hover:from-blue-600 hover:to-blue-200 transition"
+                    className="form-button"
                 >
                     Create
                 </button>

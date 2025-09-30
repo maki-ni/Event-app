@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from "react"
 import Navbar from "../components/Navbar"
-// Tailwind CSS used, no CSS module import
+
 import { useNavigate } from "react-router-dom"
 
 function AdminDashboard() {

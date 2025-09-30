@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-// Tailwind CSS used, no CSS module import
+
 import { Link } from "react-router-dom";
 function AdminLogin() {
     const navigate = useNavigate();
@@ -36,13 +36,13 @@ function AdminLogin() {
     return (
 
         <form
-            className="bg-white max-w-md mx-auto mt-12 rounded-xl shadow-lg p-8 flex flex-col gap-4"
+            className="form-base"
             onSubmit={handleLogin}
         >
-            <h2 className="text-center text-blue-700 mb-4 text-2xl font-bold">Admin Login</h2>
+            <h2 className="form-h2">Admin Login</h2>
             <Link to="/event" className="text-blue-900/80 text-xs text-center mb-2">Not an Admin?</Link>
             {error && <div className="text-red-700 text-sm text-center mb-2">{error}</div>}
-            <label htmlFor="userID" className="text-blue-700 font-medium">Username</label>
+            <label htmlFor="userID" className="form-label">Username</label>
             <input
                 type="text"
                 id="userID"
@@ -50,9 +50,9 @@ function AdminLogin() {
                 value={userID}
                 onChange={e => setUserID(e.target.value)}
                 autoComplete="username"
-                className="p-3 border border-blue-200 rounded-md text-base bg-blue-50 focus:outline-none focus:border-blue-500"
+                className="form-input"
             />
-            <label htmlFor="password" className="text-blue-700 font-medium">Password</label>
+            <label htmlFor="password" className="form-label">Password</label>
             <input
                 type="password"
                 id="password"
@@ -60,11 +60,11 @@ function AdminLogin() {
                 value={password}
                 onChange={e => setPassword(e.target.value)}
                 autoComplete="current-password"
-                className="p-3 border border-blue-200 rounded-md text-base bg-blue-50 focus:outline-none focus:border-blue-500"
+                className="form-input"
             />
             <button
                 type="submit"
-                className="bg-gradient-to-r from-blue-200 to-blue-600 text-white rounded-md py-3 text-lg font-semibold shadow hover:from-blue-600 hover:to-blue-200 transition"
+                className="form-button"
             >
                 Login
             </button>

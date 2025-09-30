@@ -1,5 +1,5 @@
 import { useState } from "react";
-// Tailwind CSS used, no CSS module import
+
 import Navbar from "../components/Navbar";
 import { useNavigate } from "react-router-dom";
 
@@ -46,31 +46,31 @@ function CreateAdmin() {
             <Navbar></Navbar>
             <form
                 onSubmit={handleAdminCreation}
-                className="bg-white max-w-md mx-auto mt-12 rounded-xl shadow-lg p-8 flex flex-col gap-4"
+                className="form-base"
             >
-                <h2 className="text-center text-blue-700 mb-4 text-2xl font-bold">Create Admin</h2>
+                <h2 className="form-h2">Create Admin</h2>
                 {error && <div className="text-red-700 text-sm text-center mb-2">{error}</div>}
-                <label htmlFor="userID" className="text-blue-700 font-medium">New userID</label>
+                <label htmlFor="userID" className="form-label">New userID</label>
                 <input
                     type="text"
                     id="userID"
                     name="userID"
                     value={userID}
                     onChange={e => setUserID(e.target.value)}
-                    className="p-3 border border-blue-200 rounded-md text-base bg-blue-50 focus:outline-none focus:border-blue-500"
+                    className="form-input"
                 />
-                <label htmlFor="password" className="text-blue-700 font-medium">New Password</label>
+                <label htmlFor="password" className="form-label">New Password</label>
                 <input
                     type="password"
                     id="password"
                     name="password"
                     value={password}
                     onChange={e => setPassword(e.target.value)}
-                    className="p-3 border border-blue-200 rounded-md text-base bg-blue-50 focus:outline-none focus:border-blue-500"
+                    className="form-input"
                 />
                 <button
                     type="submit"
-                    className="bg-gradient-to-r from-blue-200 to-blue-600 text-white rounded-md py-3 text-lg font-semibold shadow hover:from-blue-600 hover:to-blue-200 transition"
+                    className="form-button"
                 >
                     Create Admin
                 </button>
