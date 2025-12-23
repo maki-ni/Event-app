@@ -2,7 +2,7 @@
 import React from "react";
 import { useState } from "react";
 
-const AddEventForm = () => {
+const AddEventForm = ({ onEventAdded }: { onEventAdded: () => void }) => {
   const [title, setTitle] = useState("");
   const [details, setDetails] = useState("");
 
@@ -20,6 +20,7 @@ const AddEventForm = () => {
     setTitle("");
     setDetails("");
     console.log("event Added successfully");
+    onEventAdded();
   };
 
   return (

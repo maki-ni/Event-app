@@ -1,21 +1,34 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import { EventType } from "@/src/lib/types";
 import AddEventForm from "@/src/components/AddEventForm";
 
-const page = async () => {
-  async function getEvents(): Promise<EventType[]> {
+const Admin = () => {
+  const [events, setEvents] = useState<EventType[]>([]);
+  async function getEvents() {
     const res = await fetch("http://localhost:3000/api/events");
     if (!res.ok) {
       throw new Error("Failed to fetch events");
     }
-    return res.json();
+    const data = await res.json();
+    setEvents(data);
   }
-  const events = await getEvents();
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        await getEvents();
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
+    fetchData();
+  }, []);
   return (
     <div>
       <h1>This is the admin page</h1>
       <h2>Add Event</h2>
-      <AddEventForm />
+      <AddEventForm onEventAdded={getEvents} />
       <h2>Events List</h2>
       {events?.map((event: EventType) => (
         <div key={event.title}>{event.title}</div>
@@ -24,4 +37,4 @@ const page = async () => {
   );
 };
 
-export default page;
+export default Admin;
