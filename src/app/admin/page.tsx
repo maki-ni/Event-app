@@ -1,5 +1,6 @@
 import React from "react";
 import { EventType } from "@/src/lib/types";
+import AddEventForm from "@/src/components/AddEventForm";
 
 const page = async () => {
   async function getEvents(): Promise<EventType[]> {
@@ -13,6 +14,9 @@ const page = async () => {
   return (
     <div>
       <h1>This is the admin page</h1>
+      <h2>Add Event</h2>
+      <AddEventForm />
+      <h2>Events List</h2>
       {events?.map((event: EventType) => (
         <div key={event.title}>{event.title}</div>
       ))}
