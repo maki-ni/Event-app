@@ -2,8 +2,8 @@ import { NextResponse } from "next/server";
 import { EventType } from "@/src/lib/types";
 
 const mockEvents: EventType[] = [
-  { title: "title 1", details: "happens here. " },
-  { title: "title 2", details: "happens there. " },
+  { id: 1, title: "title 1", details: "happens here. " },
+  { id: 2, title: "title 2", details: "happens there. " },
 ];
 
 export async function GET() {

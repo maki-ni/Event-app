@@ -31,7 +31,7 @@ const Admin = () => {
       <AddEventForm onEventAdded={getEvents} />
       <h2>Events List</h2>
       {events?.map((event: EventType) => (
-        <div key={event.title}>{event.title}</div>
+        <div key={event.id}>{event.title}</div>
       ))}
     </div>
   );

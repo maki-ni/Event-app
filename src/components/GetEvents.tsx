@@ -26,7 +26,12 @@ const GetEvents = () => {
       <h1>Events</h1>
       <div>
         {events.map((newEvent: EventType) => (
-          <p key={newEvent.title}> {newEvent.title}</p>
+          <div key={newEvent.id}>
+            <p> {newEvent.title}</p>
+            <button className="border py-1 px-2 hover:bg-amber-100 transition duration-300 ease-in-out 1.5">
+              View More
+            </button>
+          </div>
         ))}
       </div>
     </div>
