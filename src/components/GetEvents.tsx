@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import React from "react";
 import { EventType } from "../lib/types";
 
+//a component to fetch all the available events in db
 const GetEvents = () => {
   const [events, setEvents] = useState<EventType[]>([]);
   async function fetchEvents() {
@@ -37,7 +38,5 @@ const GetEvents = () => {
     </div>
   );
 };
-
-
 
 export default GetEvents;

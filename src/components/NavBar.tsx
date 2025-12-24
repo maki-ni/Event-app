@@ -3,7 +3,7 @@ import React from "react";
 const NavBar = () => {
   return (
     <nav>
-      <ul>
+      <ul className="flex-row">
         <li>Home</li>
         <li>Log in</li>
       </ul>

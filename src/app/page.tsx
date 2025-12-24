@@ -5,6 +5,7 @@ export default function Home() {
     <div>
       <h1>Welcome</h1>
       <NavBar />
+      {/* the home page that the typical user sees */}
       <HomePage />
     </div>
   );
