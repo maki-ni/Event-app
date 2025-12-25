@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import React from "react";
 import { EventType } from "../lib/types";
+import ViewMoreButton from "./ViewMoreButton";
 
 //a component to fetch all the available events in db
 const GetEvents = () => {
@@ -29,9 +30,7 @@ const GetEvents = () => {
         {events.map((newEvent: EventType) => (
           <div key={newEvent.id}>
             <p> {newEvent.title}</p>
-            <button className="border py-1 px-2 hover:bg-amber-100 transition duration-300 ease-in-out 1.5">
-              View More
-            </button>
+            <ViewMoreButton id={newEvent.id} />
           </div>
         ))}
       </div>
