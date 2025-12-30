@@ -1,15 +1,9 @@
 import React from "react";
 import Link from "next/link";
+
+import Navbar from "@/components/ui/navbar";
 const NavBar = () => {
-  return (
-    <nav>
-      <ul className="flex-row">
-        <li>
-          <Link href="/">Home</Link>{" "}
-        </li>
-      </ul>
-    </nav>
-  );
+  return <Navbar />;
 };
 
 export default NavBar;
