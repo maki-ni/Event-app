@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import React from "react";
 import { EventType } from "../lib/types";
-import ViewMoreButton from "./ViewMoreButton";
+
 import EventCard from "./EventCard";
 
 //a component to fetch all the available events in db

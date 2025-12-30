@@ -7,7 +7,9 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { EventType } from "../lib/types";
-import ViewMoreButton from "./ViewMoreButton";
+
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 function EventCard({ id, title, details }: EventType) {
   return (
@@ -16,7 +18,9 @@ function EventCard({ id, title, details }: EventType) {
         <CardTitle>{title}</CardTitle>
         <CardDescription>{details}</CardDescription>
         <CardAction>
-          <ViewMoreButton id={id}></ViewMoreButton>
+          <Link href={`/${id}`}>
+            <Button variant="outline">View More</Button>
+          </Link>
         </CardAction>
       </CardHeader>
     </Card>
