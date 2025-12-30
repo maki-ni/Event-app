@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { EventType } from "@/src/lib/types";
 import AddEventForm from "@/src/components/AddEventForm";
+import { Button } from "@/components/ui/button";
 
 const Admin = () => {
   const [events, setEvents] = useState<EventType[]>([]);
@@ -33,9 +34,8 @@ const Admin = () => {
       {events?.map((event: EventType) => (
         <div key={event.id}>
           <p className="inline mr-5">{event.title}</p>
-          <button className="bg-amber-50 rounded-xl py-2 px-4 hover:bg-amber-200">
-            edit
-          </button>
+          <Button>edit</Button>
+          {/* <button className="bg-amber-50 rounded-xl py-2 px-4 hover:bg-amber-200"></button> */}
         </div>
       ))}
     </div>
