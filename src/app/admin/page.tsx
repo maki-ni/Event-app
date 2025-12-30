@@ -31,7 +31,12 @@ const Admin = () => {
       <AddEventForm onEventAdded={getEvents} />
       <h2>Events List</h2>
       {events?.map((event: EventType) => (
-        <div key={event.id}>{event.title}</div>
+        <div key={event.id}>
+          <p className="inline mr-5">{event.title}</p>
+          <button className="bg-amber-50 rounded-xl py-2 px-4 hover:bg-amber-200">
+            edit
+          </button>
+        </div>
       ))}
     </div>
   );

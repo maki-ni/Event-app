@@ -29,7 +29,7 @@ const GetEvents = () => {
       <div>
         {events.map((newEvent: EventType) => (
           <div key={newEvent.id}>
-            <p> {newEvent.title}</p>
+            <span> {newEvent.title}</span>
             <ViewMoreButton id={newEvent.id} />
           </div>
         ))}

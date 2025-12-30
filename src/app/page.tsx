@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <div>
       <h1>Welcome</h1>
-      <NavBar />
+      {/* <NavBar /> */}
       {/* the home page that the typical user sees */}
       <HomePage />
     </div>
