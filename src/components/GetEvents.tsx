@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import React from "react";
 import { EventType } from "../lib/types";
 import ViewMoreButton from "./ViewMoreButton";
+import EventCard from "./EventCard";
 
 //a component to fetch all the available events in db
 const GetEvents = () => {
@@ -29,8 +30,11 @@ const GetEvents = () => {
       <div>
         {events.map((newEvent: EventType) => (
           <div key={newEvent.id}>
-            <span> {newEvent.title}</span>
-            <ViewMoreButton id={newEvent.id} />
+            <EventCard
+              id={newEvent.id}
+              title={newEvent.title}
+              details={newEvent.details}
+            />
           </div>
         ))}
       </div>
