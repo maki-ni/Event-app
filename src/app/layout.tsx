@@ -1,7 +1,12 @@
 import type { Metadata } from "next";
-
-import "./globals.css";
+import { Geist } from "next/font/google"; // Import from Google
 import NavBar from "../components/NavBar";
+import "./globals.css";
+
+const geistSans = Geist({
+  subsets: ["latin"],
+  variable: "--font-sans", // This connects it to Tailwind
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -14,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={geistSans.className}>
       <body>
         <NavBar />
         {children}
