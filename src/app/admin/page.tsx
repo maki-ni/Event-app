@@ -66,7 +66,7 @@ const Admin = () => {
             </form>
           </CardContent>
           <CardFooter>
-            <Button variant={"outline"}>Edit</Button>
+            <Button variant={"outline"}>Save Changes</Button>
             <Button
               variant={"outline"}
               onClick={() => setPopCard({ ...popCard, status: false })}
