@@ -4,3 +4,9 @@ export interface EventType {
   title: string;
   details: string;
 }
+
+export interface popUpCardType {
+  status: boolean;
+  id: number | null;
+  title: string;
+}
