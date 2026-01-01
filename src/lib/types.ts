@@ -8,5 +8,6 @@ export interface EventType {
 export interface popUpCardType {
   status: boolean;
   id: number | null;
+  details?: string;
   title: string;
 }

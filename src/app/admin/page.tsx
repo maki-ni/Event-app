@@ -10,7 +10,6 @@ import {
   CardFooter,
   CardTitle,
 } from "@/components/ui/card";
-import { METHODS } from "node:http";
 
 const Admin = () => {
   const [events, setEvents] = useState<EventType[]>([]);
@@ -18,6 +17,7 @@ const Admin = () => {
     status: false,
     id: null,
     title: "",
+    details: "",
   });
   async function getEvents() {
     const res = await fetch("http://localhost:3000/api/events");
@@ -38,13 +38,22 @@ const Admin = () => {
 
     fetchData();
   }, []);
-  const handleChange = async (id) => {
-    await fetch(`/api/events/${id}`, {
+  const handleChange = async (
+    id: number | null,
+    updates: Partial<popUpCardType>
+  ) => {
+    const res = await fetch(`/api/events/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
+      body: JSON.stringify(updates),
     });
+    const data = await res.json();
+    await getEvents();
+    setPopCard({ ...popCard, status: false });
+    console.log(data);
+    return data;
   };
   return (
     <div>
@@ -70,12 +79,29 @@ const Admin = () => {
                 />
               </label>
               <label htmlFor="details">
-                Details: <input id="details" />
+                Details:{" "}
+                <input
+                  id="details"
+                  value={popCard.details}
+                  onChange={(e) =>
+                    setPopCard({ ...popCard, details: e.target.value })
+                  }
+                />
               </label>
             </form>
           </CardContent>
           <CardFooter>
-            <Button variant={"outline"}>Save Changes</Button>
+            <Button
+              variant={"outline"}
+              onClick={() =>
+                handleChange(popCard.id, {
+                  title: popCard.title,
+                  details: popCard.details,
+                })
+              }
+            >
+              Save Changes
+            </Button>
             <Button
               variant={"outline"}
               onClick={() => setPopCard({ ...popCard, status: false })}
@@ -91,7 +117,12 @@ const Admin = () => {
           <p className="inline mr-5">{event.title}</p>
           <Button
             onClick={() =>
-              setPopCard({ status: true, id: event.id, title: event.title })
+              setPopCard({
+                status: true,
+                id: event.id,
+                title: event.title,
+                details: event.details,
+              })
             }
           >
             edit
