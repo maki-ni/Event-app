@@ -2,6 +2,15 @@ GET http://127.0.0.1:3000/api/events/1
 Content-Type: application/json
 
 ###
+PATCH http://127.0.0.1:3000/api/events/1
+Content-Type: application/json
+
+{
+    "title":"test",
+    "details": "testing"
+}
+
+###
 POST http://127.0.0.1:3000/api/events
 Content-Type: application/json
 

@@ -10,6 +10,7 @@ import {
   CardFooter,
   CardTitle,
 } from "@/components/ui/card";
+import { METHODS } from "node:http";
 
 const Admin = () => {
   const [events, setEvents] = useState<EventType[]>([]);
@@ -37,6 +38,14 @@ const Admin = () => {
 
     fetchData();
   }, []);
+  const handleChange = async (id) => {
+    await fetch(`/api/events/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  };
   return (
     <div>
       <h1>This is the admin page</h1>

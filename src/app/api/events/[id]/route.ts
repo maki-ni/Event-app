@@ -27,4 +27,27 @@ export async function GET(
   }
 }
 
-export async function PATCH(request: Request) {}
+export async function PATCH(
+  request: Request,
+  content: { params: Promise<{ id: string }> }
+) {
+  try {
+    const { id } = await content.params;
+    const eventId = Number(id);
+    const body = await request.json();
+    //
+    const eventIndex = mockEvents.findIndex(
+      (specific: EventType) => specific.id == eventId
+    );
+
+    const updatedEvent = {
+      ...mockEvents[eventIndex],
+      ...body,
+    };
+    mockEvents[eventIndex] = updatedEvent;
+    return NextResponse.json(updatedEvent, { status: 200 });
+  } catch (err) {
+    console.error("PATH ERROR", err);
+    return NextResponse.json({ error: "Some patch error" }, { status: 500 });
+  }
+}
