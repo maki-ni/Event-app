@@ -8,6 +8,7 @@ import EventCard from "./EventCard";
 //a component to fetch all the available events in db
 const GetEvents = () => {
   const [events, setEvents] = useState<EventType[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
   async function fetchEvents() {
     try {
       const res = await fetch("/api/events");
@@ -16,6 +17,7 @@ const GetEvents = () => {
       }
       const data = await res.json();
       setEvents(data);
+      setIsLoading(false);
     } catch (err) {
       console.error(err);
     }
@@ -28,6 +30,7 @@ const GetEvents = () => {
     <div>
       <h1>Events</h1>
       <div>
+        {isLoading && <p>Loading Content . . . </p>}
         {events.map((newEvent: EventType) => (
           <div key={newEvent.id}>
             <EventCard
