@@ -1,0 +1,6 @@
+{
+  "events": [
+    { "id": 1, "title": "title 1", "details": "happens here. " },
+    { "id": 2, "title": "title 2", "details": "happens there. " }
+  ]
+}
