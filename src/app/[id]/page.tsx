@@ -2,6 +2,8 @@
 import { useEffect, useState } from "react";
 import { EventType } from "@/src/lib/types";
 import { useParams } from "next/navigation";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 export default function EventPage() {
   const params = useParams();
@@ -26,6 +28,9 @@ export default function EventPage() {
 
   return (
     <div className="p-4">
+      <Link href={"/"}>
+        <Button variant={"outline"}>Go Home </Button>
+      </Link>
       <h1 className="text-xl font-bold">{event.title}</h1>
       <p>{event.details}</p>
     </div>
