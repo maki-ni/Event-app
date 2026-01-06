@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { EventType } from "@/src/lib/types";
 import { useParams } from "next/navigation";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import { Button } from "@/components/ui/button";
 
 export default function EventPage() {
@@ -23,7 +24,8 @@ export default function EventPage() {
   }, [id]);
 
   if (!event) {
-    return <p>Loading event details...</p>;
+    <p>Loading event details...</p>;
+    return notFound();
   }
 
   return (
