@@ -1,32 +1,19 @@
-"use client";
-import { useEffect, useState } from "react";
 import { EventType } from "@/src/lib/types";
-import { useParams } from "next/navigation";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/ui/button";
 
-export default function EventPage() {
-  const params = useParams();
-  const id = params?.id;
-
-  const [event, setEvent] = useState<EventType>();
-
-  useEffect(() => {
-    if (id) {
-      const fetchEvent = async () => {
-        const res = await fetch(`/api/events/${id}`);
-        const data: EventType = await res.json();
-        setEvent(data);
-      };
-      fetchEvent();
-    }
-  }, [id]);
-
-  if (!event) {
-    <p>Loading event details...</p>;
+export default async function EventPage({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params;
+  const res = await fetch(`http://localhost:3000/api/events/${id}`);
+  if (!res.ok) {
     return notFound();
   }
+  const event: EventType = await res.json();
 
   return (
     <div className="p-4">
